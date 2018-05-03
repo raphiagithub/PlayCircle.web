@@ -218,6 +218,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Accounts\Authentication.cshtml" />
+    <None Include="Properties\PublishProfiles\playcircle - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\playcircle - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
