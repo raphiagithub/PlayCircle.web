@@ -1,5 +1,6 @@
 namespace Portal.PlayCircle.DataEntity.DBContext
 {
+    using global::PlayCircle.web.DataEntity.DBContext;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.Owin.Logging;
     using Portal.PlayCircle.DataEntity.EntityModels;
@@ -23,11 +24,28 @@ namespace Portal.PlayCircle.DataEntity.DBContext
         private ObjectContext _objectContext;
         private DbTransaction _transaction;
         private static bool _databaseInitialized;
+        private static readonly object Lock = new object();
 
         #endregion
 
         public PlayCircleDBContext()
-            : base("name=" + AppConnectionString) { }
+            : base("name=" + AppConnectionString)
+         {
+            if (_databaseInitialized)
+            {
+                return;
+            }
+            lock (Lock)
+            {
+                if (!_databaseInitialized)
+                {
+                    Database.SetInitializer(new Seeder());
+                    _databaseInitialized = true;
+                }
+            }
+        }
+
+
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

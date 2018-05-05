@@ -1,52 +1,66 @@
 ﻿mainapp.controller('authenticationController', ['$scope', 'accountService', function ($scope, accountService) {
 
-    $scope.Gabriel = "success";
-
     $scope.PageTitle = "Registration";
+    $scope.emailFormat = /^[a-zA-Z0-9._]+[@]+[a-zA-Z0-9]+[.]+[a-zA-Z]{2,6}/;
+    $scope.emailPattern = "wrong email";
 
-    
 
     $scope.ClearModal = function () {
         $scope.RegistrationModal = {};
-
+        $scope.LoginModal = {};
     }
 
-    $scope.login = function () {
-        $scope.response = "enter";
-
-        try {
-
-        
-        accountService.registerUser($scope.RegistrationModel, $scope.RegistrationModel).success(function (response) {
-            $scope.response = "success";
-            alert(response);
-            //toastr.success("Registered successfully. Please check your registered email, to activate your account.");
-            //toastr.success(messageService.successRegister);
-            //$scope.registerMessage = {
-            //    message: messageService.successRegister,
-            //    type: 'success'
-            //}
-            //$scope.registerModel = {};
-            //$scope.registerForm.$setPristine();
-            //$scope.registerLoading = false;
+    $scope.CheckAdmin = function () {
+        accountService.CheckAdminExistancy().success(function (response) {
+            $scope.isAdminExists = response;
         })
             .error(function (response) {
-                alert(JSON.stringify(response));
-                //var errors = [];
-                ////errors.push(response.Message);
-                //for (var key in response.ModelState) {
-                //    for (var i = 0; i < response.ModelState[key].length; i++) {
-                //        errors.push(response.ModelState[key][i] + '</br>');
-                //    }
-                //}
-                //toastr.error(errors);
-                ////console.log(response)
-
-                //$scope.registerLoading = false;
             });
-            $scope.response = "nothing";
+    }
+
+    $scope.SignUp = function () {
+        try {
+            accountService.registerUser($scope.RegistrationModel, $scope.RegistrationModel).success(function (response) {
+                alert(response);
+            })
+                .error(function (response) {
+                    alert(JSON.stringify(response));
+                });
         } catch (e) {
             alert(e.message);
         }
     }
+
+    $scope.login = function () {
+        accountService.loginUser($scope.LoginModal).success(function (response) {
+            alert(JSON.stringify(response));
+                //if (response.loginCount < 1)
+                //    window.location.href = "/account/profile";
+                //else {
+                //    if (response.PaidUser == "True") {
+                //        window.location.href = "/dashboard";
+                //    }
+                //    else {
+                //        window.location.href = "/landing";
+                //    }
+                //}
+            })
+                .error(function (response) {
+                    alert(JSON.stringify( response));
+                    //toastr.error(response.error_description)
+                    ////console.log(response)
+                    //$scope.loginLoading = false;
+            });
+
+        //accountService.GetuserInfo().success(function (response) {
+        //    alert("success" +JSON.stringify(response));
+        //})
+        //    .error(function (response) {
+        //        alert("error"+JSON.stringify(response));
+        //    });
+        
+        //window.location.href = "/Accounts";
+
+    }
+
 }]);

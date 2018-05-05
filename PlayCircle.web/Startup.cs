@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Threading.Tasks;
 using Microsoft.Owin;
 using Owin;
+using PlayCircle.web.DataEntity.DBContext;
 using Portal.PlayCircle.DataEntity.DBContext;
 
 [assembly: OwinStartup(typeof(PlayCircle.web.Startup))]
@@ -16,7 +17,7 @@ namespace PlayCircle.web
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<PlayCircleDBContext>());
+            Database.SetInitializer(new Seeder());
 
            // var mappingDefinitions = new MappingDefinitions();
            // mappingDefinitions.Initialise();

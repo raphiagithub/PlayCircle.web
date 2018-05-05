@@ -4,7 +4,7 @@
 }
 
 <!DOCTYPE html>
-<html ng-app="playcircleApp" ng-controller="authenticationController">
+<html ng-app="playcircleApp" ng-controller="authenticationController" ng-init="CheckAdmin()">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,19 +14,18 @@
     <div class="register-box">
         <div class="register-logo">
             <b>Project Name</b>
-            {{response}}
         </div>
-        @*<div ng-include="'/Content/Partials/Authentication/Register.html'"></div>*@
-        <div class="register-box-body">
-        
+
+        <div class="register-box-body" ng-hide="isAdminExists">
             <p class="login-box-msg">Create new user account</p>
-            <form name="RegisterForm" ng-init="ClearModal()" novalidate ng-submit="login()">
+            <form name="RegisterForm" ng-init="ClearModal()" ng-submit="SignUp()">
                 <div class="form-group has-feedback">
                     <input type="text" class="form-control" ng-model="RegistrationModel.FullName" name="txtFullName" placeholder="Full name">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" ng-model="RegistrationModel.Email" placeholder="Email">
+                    <input type="text" class="form-control" ng-pattern="emailFormat" ng-model-options="{updateOn: 'change', allowInvalid : true}" ng-pattern-err-type="emailPattern"
+                           ng-model="RegistrationModel.Email" placeholder="Email">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
@@ -45,22 +44,40 @@
                     <input type="password" class="form-control" placeholder="Retype password">
                     <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                 </div>
-
                 <div class="row">
-
                     <div class="col-xs-4 col-xs-offset-8">
                         <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
                     </div>
                     <!-- /.col -->
                 </div>
             </form>
-
-            <a href="login.html" class="text-center">I already have a membership</a>
+            <a ng-click="isAdminExists=true" style="cursor:pointer;" class="text-center">I already have a user account</a>
         </div>
 
+        <div class="login-box-body" ng-show="isAdminExists">
+            <p class="login-box-msg">Sign in to start.</p>
+
+            <form name="loginForm" ng-submit="login()">
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control" placeholder="User Name" ng-model="LoginModal.UserName">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" class="form-control" placeholder="Password" ng-model="LoginModal.Password">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="row">
+                    <div class=" col-xs-offset-8 col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                    </div>
+                </div>
+            </form>
+            <a href="#">I forgot my password</a><br>
+        </div>
     </div>
     <script src="~/Scripts/PlayCircle.js"></script>
     <script src="~/Scripts/PlayCircle/App/AuthenticationController.js"></script>
     <script src="~/Scripts/PlayCircle/Services/AccountService.js"></script>
+    <script src="~/Scripts/PlayCircle/Angular/angular-local-storage.min.js"></script>
 </body>
 </html>

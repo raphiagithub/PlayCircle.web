@@ -1,5 +1,5 @@
 ﻿
-var mainapp = angular.module('playcircleApp', ['ui.router', 'oc.lazyLoad']);
+var mainapp = angular.module('playcircleApp', ['LocalStorageModule','ui.router', 'oc.lazyLoad']);
 
 
 mainapp.controller('placirclerController', ['$scope', function ($scope) {

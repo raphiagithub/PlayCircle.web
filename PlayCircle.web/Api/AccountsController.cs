@@ -3,9 +3,12 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security.DataProtection;
 using PlayCircle.web.Models;
 using Portal.PlayCircle.App_Start;
+using Portal.PlayCircle.DataEntity.DBContext;
 using Portal.PlayCircle.DataEntity.EntityModels;
 using Portal.PlayCircle.Helpers;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +18,8 @@ namespace PlayCircle.web.Api
 {
     public class AccountsController : ApiController
     {
+        #region Public declaration
+
 
         private ApplicationUserManager _userManager;
 
@@ -28,6 +33,17 @@ namespace PlayCircle.web.Api
             {
                 _userManager = value;
             }
+        }
+
+        #endregion
+
+        [AllowAnonymous]
+        [HttpGet]
+        public async Task<bool> CheckAdminExistancy()
+        {
+            PlayCircleDBContext playcircledbcontext = new PlayCircleDBContext();
+            //playcircledbcontext.Users.Find()
+            return false;
         }
 
         [AllowAnonymous]
@@ -48,7 +64,7 @@ namespace PlayCircle.web.Api
                     EmailConfirmed = false,
                     PhoneNumber = registermodel.MobileNo,
                 };
-                IdentityResult result = await UserManager.CreateAsync(user,registermodel.Password);
+                IdentityResult result = await UserManager.CreateAsync(user, registermodel.Password);
                 if (result.Succeeded)
                 {
                     /*
@@ -120,5 +136,30 @@ namespace PlayCircle.web.Api
 
             return null;
         }
+
+
+        //[HttpGet]
+        //public async Task<IHttpActionResult> GetuserInfo()
+        //{
+        //    var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+        //    UserDetails userdetails = new UserDetails
+        //    {
+        //        UserId=user.Id,
+        //        FullName=user.full_name,
+        //        UserName=user.UserName,
+        //        Email=user.Email,
+        //        PhoneNo=user.PhoneNumber
+        //    };
+        //    return Ok(userdetails);
+        //}
+    }
+
+    public class UserDetails
+    {
+        public string UserId { get; set; }
+        public string FullName { get; set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNo { get; set; }
     }
 }

@@ -214,6 +214,9 @@
     <Reference Include="System.Web.Http, Version=5.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.5\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.5\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Users\RAPHIA\Desktop\System.Web.Http.Owin.dll</HintPath>
@@ -280,6 +283,7 @@
     <Content Include="Scripts\ocLazyLoad.min.js" />
     <Content Include="Scripts\PlayCircle.js" />
     <Content Include="Scripts\PlayCircle\angular.js" />
+    <Content Include="Scripts\PlayCircle\Angular\angular-local-storage.min.js" />
     <Content Include="Scripts\PlayCircle\App\AuthenticationController.js" />
     <Content Include="Scripts\PlayCircle\App\MainApp.js" />
     <Content Include="Scripts\PlayCircle\Services\AccountService.js" />

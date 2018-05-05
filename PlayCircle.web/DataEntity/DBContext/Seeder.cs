@@ -29,6 +29,7 @@ namespace PlayCircle.web.DataEntity.DBContext
                 };
                 var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
+
                 if (!roleManager.RoleExists("Admin"))
                 {
                     roleManager.Create(new IdentityRole("Admin"));
