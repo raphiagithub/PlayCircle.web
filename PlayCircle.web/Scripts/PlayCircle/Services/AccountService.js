@@ -37,7 +37,6 @@ mainapp.factory('accountService', ['$http', 'localStorageService', function ($ht
     //-- Login user --//
     accountServiceFactory.loginUser = function (model) {
         var data = "grant_type=password&username=" + model.UserName + "&password=" + model.Password;
-        //        data = data + "&client_id=" + ngAuthSettings.clientId;
         data = data + "&client_id=ngAuthApp";
         //accountServiceFactory.logOut();
         return $http.post(loginUrl, data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
@@ -60,8 +59,6 @@ mainapp.factory('accountService', ['$http', 'localStorageService', function ($ht
                 return response;
             });
     };
-
-    
 
     return accountServiceFactory;
 }]);

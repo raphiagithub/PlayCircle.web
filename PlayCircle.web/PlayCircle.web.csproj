@@ -261,6 +261,7 @@
     <Content Include="Content\Partials\Theme\Header.html" />
     <Content Include="Content\Partials\Theme\Slideer.html" />
     <Content Include="Content\Partials\Theme\WrapperPage.html" />
+    <Content Include="Content\Partials\Users\Users.html" />
     <Content Include="Content\Styles\AdminLTE.min.css" />
     <Content Include="Content\Styles\blue.css" />
     <Content Include="Content\Styles\bootstrap.min.css" />
@@ -277,8 +278,11 @@
     <Content Include="Scripts\adminlte.min.js" />
     <Content Include="Scripts\angular-ui-router.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\dataTables.bootstrap.min.js" />
     <Content Include="Scripts\icheck.min.js" />
+    <Content Include="Scripts\JavaScript.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\ocLazyLoad.min.js" />
     <Content Include="Scripts\PlayCircle.js" />
@@ -286,6 +290,7 @@
     <Content Include="Scripts\PlayCircle\Angular\angular-local-storage.min.js" />
     <Content Include="Scripts\PlayCircle\App\AuthenticationController.js" />
     <Content Include="Scripts\PlayCircle\App\MainApp.js" />
+    <Content Include="Scripts\PlayCircle\Controllers\DashboardController.js" />
     <Content Include="Scripts\PlayCircle\Services\AccountService.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Accounts\Index.cshtml" />

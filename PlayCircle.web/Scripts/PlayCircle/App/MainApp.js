@@ -3,9 +3,7 @@ var mainapp = angular.module('playcircleApp', ['LocalStorageModule','ui.router',
 
 
 mainapp.controller('placirclerController', ['$scope', function ($scope) {
-    $scope.test = function () {
-        alert('working');
-    }
+
 }]);
 
 mainapp.config(function ($stateProvider, $urlRouterProvider) {
@@ -14,12 +12,15 @@ mainapp.config(function ($stateProvider, $urlRouterProvider) {
         .state('home', {
             url: '/home',
             //templateUrl: '/Contents/Partials/LoginPage.html',
-            templateUrl: '/Content/Partials/Theme/Header.html',
+            templateUrl: '/Content/Partials/Users/Users.html',
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load({
                         //insertBefore: '#ng_load_plugins_before',
-                        files: ['/Scripts/adminlte.min.js']
+                        files: ['/Content/Styles/dataTables.bootstrap.min.css',
+                            '/Scripts/jquery.dataTables.min.js',
+                            '/Scripts/dataTables.bootstrap.min.js'
+                        ]
                     });
                 }]
             }
