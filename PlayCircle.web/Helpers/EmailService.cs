@@ -31,7 +31,7 @@ namespace Portal.PlayCircle.Helpers
         public static SmtpConfig SmptpConfiguration()
         {
             //var smtpconfig = SmtpConfig.GetConfigForMailGun("postmaster@sandbox255bd21b1b1841afa8223b7d3bcd4e49.mailgun.org", "b9b784945a476268282a9800ce5700fd");
-            var smtpconfig = SmtpConfig.GetConfigForGmail("talentspirellp@gmail.com", "aeedc6ae#");
+            var smtpconfig = SmtpConfig.GetConfigForGmail("gsmailinfo@gmail.com", "9489188360");
             return smtpconfig;
         }
         public async Task SendAsync(IdentityMessage message)

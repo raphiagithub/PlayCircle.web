@@ -198,6 +198,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="DataEntity\DBContext\PlayCircleDBContext.cs" />
+    <Compile Include="DataEntity\DBContext\Seeder.cs" />
     <Compile Include="DataEntity\EntityModels\Application.cs" />
     <Compile Include="DataEntity\EntityModels\UserInfoEntity.cs" />
     <Compile Include="Global.asax.cs">

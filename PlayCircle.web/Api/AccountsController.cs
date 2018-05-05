@@ -34,7 +34,6 @@ namespace PlayCircle.web.Api
         [HttpPost]
         public async Task<IHttpActionResult> RegisterUser(RegisterModel registermodel)
         {
- 
             try
             {
                 if (!ModelState.IsValid)
@@ -43,21 +42,19 @@ namespace PlayCircle.web.Api
                 }
                 var user = new USERINFO()
                 {
-                    //full_name = "Gabriel xavier",
+                    full_name = registermodel.FullName,
                     UserName = registermodel.UserName,
                     Email = registermodel.Email,
                     EmailConfirmed = false,
-                    PhoneNumber = registermodel.MobileNo
+                    PhoneNumber = registermodel.MobileNo,
                 };
-                IdentityResult result = await UserManager.CreateAsync(user, "New user");
+                IdentityResult result = await UserManager.CreateAsync(user,registermodel.Password);
                 if (result.Succeeded)
                 {
+                    /*
                     var provider = new DpapiDataProtectionProvider("TalentSpire");
                     UserManager.EmailService = new EmailService();
-
-                    //IHttpActionResult errorResult = GetErrorResult(result);
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-
                     var newRouteValues = new System.Web.Routing.RouteValueDictionary(new { userId = user.Id, code = code })
                 {
                     {"httproute", true}
@@ -67,7 +64,7 @@ namespace PlayCircle.web.Api
                     var body = CreateMailBody(callbackUrl, "Gabriel xavier");
                     await UserManager.SendEmailAsync(user.Id,
                         "Welcome to Talentspire - Confirm account", body);
-                    Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id }));
+                    Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id })); */
                     return Ok();
                 }
                 else

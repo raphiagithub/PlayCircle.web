@@ -22,6 +22,7 @@ namespace Portal.PlayCircle.DataEntity.DBContext
         private const string AppConnectionString = "PlayCircleDBContext";
         private ObjectContext _objectContext;
         private DbTransaction _transaction;
+        private static bool _databaseInitialized;
 
         #endregion
 

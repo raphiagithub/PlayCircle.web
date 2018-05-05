@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-mainapp.factory('accountService', ['$http', function ($http) {
+mainapp.factory('accountService', ['$http' , function ($http ) {
 
     var urlBase = window.location.origin + "/";
     var loginUrl = urlBase + "token";

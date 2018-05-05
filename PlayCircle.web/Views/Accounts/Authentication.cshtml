@@ -14,9 +14,11 @@
     <div class="register-box">
         <div class="register-logo">
             <b>Project Name</b>
+            {{response}}
         </div>
         @*<div ng-include="'/Content/Partials/Authentication/Register.html'"></div>*@
         <div class="register-box-body">
+        
             <p class="login-box-msg">Create new user account</p>
             <form name="RegisterForm" ng-init="ClearModal()" novalidate ng-submit="login()">
                 <div class="form-group has-feedback">
@@ -32,7 +34,7 @@
                     <span class="glyphicon glyphicon-phone form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" ng-value="RegistrationModel.Email" placeholder="User Name" ng-model="RegistrationModel.UserName">
+                    <input type="text" class="form-control" placeholder="User Name" ng-model="RegistrationModel.UserName">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
