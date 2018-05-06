@@ -13,13 +13,15 @@
 
         addTag('script', { src: '/Scripts/PlayCircle/angular.js' }, sync);
         addTag('script', { src: '/Scripts/playcircle/angular/angular-local-storage.min.js' }, sync);
-        addTag('script', { src: '/Scripts/PlayCircle/App/MainApp.js' }, sync);
+        addTag('script', { src: '/Scripts/PlayCircle/App/MainApp.js' }, sync);      
         addTag('script', { src: '/Scripts/angular-ui-router.js' }, sync);
         addTag('script', { src: '/Scripts/ocLazyLoad.min.js' }, sync);
         addTag('script', { src: '/Scripts/jquery.min.js' }, sync);
         addTag('script', { src: '/Scripts/jquery-ui.min.js' }, sync);
         addTag('script', { src: '/Scripts/adminlte.min.js' }, sync);
         addTag('script', { src: '/Scripts/bootstrap.min.js' }, sync);
+
+        addTag('script', { src: '/Scripts/PlayCircle/Services/AccountService.js' }, sync);
 
         //addTag('script', { src: 'angtest.js' }, sync);
     } catch (e) {

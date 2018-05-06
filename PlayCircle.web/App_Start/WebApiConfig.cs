@@ -16,11 +16,18 @@ namespace PlayCircle.web
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
+
+            //config.Routes.MapHttpRoute(
+            //     name: "DefaultApiWithID",
+            //     routeTemplate: "api/{controller}/{id}",
+            //     defaults: null
+            // );
+            config.Routes.MapHttpRoute("DefaultApiWithAction", "Api/{controller}/{action}");
 
 
         }

@@ -138,20 +138,25 @@ namespace PlayCircle.web.Api
         }
 
 
-        //[HttpGet]
-        //public async Task<IHttpActionResult> GetuserInfo()
-        //{
-        //    var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-        //    UserDetails userdetails = new UserDetails
-        //    {
-        //        UserId=user.Id,
-        //        FullName=user.full_name,
-        //        UserName=user.UserName,
-        //        Email=user.Email,
-        //        PhoneNo=user.PhoneNumber
-        //    };
-        //    return Ok(userdetails);
-        //}
+        [HttpGet]
+        public async Task<IHttpActionResult> GetuserInfo()
+        {
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            if (user != null)
+            {
+                //var user = await UserManager.FindByIdAsync("a3d95e6d-d7a9-4115-9cb9-54413aabd77d");
+                UserDetails userdetails = new UserDetails
+                {
+                    UserId = user.Id,
+                    FullName = user.full_name,
+                    UserName = user.UserName,
+                    Email = user.Email,
+                    PhoneNo = user.PhoneNumber
+                };
+                return Ok(userdetails);
+            }
+            return null;
+        }
     }
 
     public class UserDetails

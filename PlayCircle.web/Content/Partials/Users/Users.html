@@ -1,21 +1,7 @@
 ﻿  <!-- from here -->
-<script>
-    (function(){
-        alert('success');
-    }) ();
-    $(function () {
-        $('#example1').DataTable()
-        $('#example2').DataTable({
-            'paging': true,
-            'lengthChange': false,
-            'searching': false,
-            'ordering': true,
-            'info': true,
-            'autoWidth': false
-        })
-    })
-
-</script>
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+    Launch Default Modal
+</button>
 <div class="modal fade" id="modal-default">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
@@ -572,6 +558,11 @@
     </div>
     <!-- /.row -->
 </section>
+<input type="button" id="tstBtn" />
 <!-- /.content -->
-</div>
-<!-- from here-->
+<script>
+    $('tstBtn').click(function () {
+        alert('button clicked');
+    });
+</script>
+

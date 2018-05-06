@@ -34,6 +34,7 @@
     $scope.login = function () {
         accountService.loginUser($scope.LoginModal).success(function (response) {
             alert(JSON.stringify(response));
+            window.location.href = "/Accounts";
                 //if (response.loginCount < 1)
                 //    window.location.href = "/account/profile";
                 //else {
@@ -52,15 +53,11 @@
                     //$scope.loginLoading = false;
             });
 
-        //accountService.GetuserInfo().success(function (response) {
-        //    alert("success" +JSON.stringify(response));
-        //})
-        //    .error(function (response) {
-        //        alert("error"+JSON.stringify(response));
-        //    });
+       
         
         //window.location.href = "/Accounts";
 
     }
 
+  
 }]);
