@@ -5,9 +5,8 @@ var mainapp = angular.module('playcircleApp', ['LocalStorageModule', 'ui.router'
 mainapp.controller('placirclerController', ['$scope', 'accountService', function ($scope, accountService) {
 
     $scope.GetLogedInUserInfo = function () {
-        alert('i am called');
         accountService.GetuserInfo().success(function (response) {
-            alert("success" + JSON.stringify(response));
+            $scope.FullName = response.FullName;
         })
             .error(function (response) {
                 alert("error" + JSON.stringify(response));
@@ -24,6 +23,9 @@ mainapp.config(function ($stateProvider, $urlRouterProvider) {
             url: '/home',
             //templateUrl: '/Contents/Partials/LoginPage.html',
             templateUrl: '/Content/Partials/Users/Users.html',
+            data: function () {
+                return { name: 'gabriel' }
+            },
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load({

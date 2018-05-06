@@ -20,6 +20,7 @@ namespace Portal.PlayCircle.DataEntity.EntityModels
 
         public int application_id { get; set; }
         public string full_name { get; set; }
+        //public string ProfileImage { get; set; } = null;
         //public int gender { get; set; }
         //public string display_name { get; set; }
         //public int isverified_mobileno { get; set; }
