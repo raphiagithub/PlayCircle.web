@@ -267,7 +267,9 @@
     <Content Include="Content\Styles\bootstrap.min.css" />
     <Content Include="Content\Styles\dataTables.bootstrap.min.css" />
     <Content Include="Content\Styles\font-awesome.min.css" />
+    <Content Include="Content\Styles\ngProgress.css" />
     <Content Include="Content\Styles\select2.min.css" />
+    <Content Include="Content\Styles\sweetalert.css" />
     <Content Include="Content\Styles\_all-skins.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -285,6 +287,7 @@
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\ngprogress.min.js" />
     <Content Include="Scripts\ocLazyLoad.min.js" />
     <Content Include="Scripts\PlayCircle.js" />
     <Content Include="Scripts\PlayCircle\angular.js" />
@@ -292,8 +295,10 @@
     <Content Include="Scripts\PlayCircle\App\AuthenticationController.js" />
     <Content Include="Scripts\PlayCircle\App\MainApp.js" />
     <Content Include="Scripts\PlayCircle\Controllers\DashboardController.js" />
+    <Content Include="Scripts\PlayCircle\Services\Message.js" />
     <Content Include="Scripts\select2.full.min.js" />
     <Content Include="Scripts\PlayCircle\Services\AccountService.js" />
+    <Content Include="Scripts\sweetalert.min.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Accounts\Index.cshtml" />
   </ItemGroup>
@@ -311,6 +316,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ConstantString.cs" />
     <Compile Include="Helpers\EmailService.cs" />
     <Compile Include="Models\AccountsModels\Users.cs" />
     <Compile Include="Models\RegisterModel.cs" />

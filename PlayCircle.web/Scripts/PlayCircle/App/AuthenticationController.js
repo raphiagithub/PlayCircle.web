@@ -1,8 +1,9 @@
-﻿mainapp.controller('authenticationController', ['$scope', 'accountService', function ($scope, accountService) {
+﻿mainapp.controller('authenticationController', ['$scope', 'accountService', 'ngProgressFactory', 'messageService', function ($scope, accountService, ngProgressFactory, messageService) {
 
     $scope.PageTitle = "Registration";
     $scope.emailFormat = /^[a-zA-Z0-9._]+[@]+[a-zA-Z0-9]+[.]+[a-zA-Z]{2,6}/;
     $scope.emailPattern = "wrong email";
+    $scope.progressbar = ngProgressFactory.createInstance();
 
 
     $scope.ClearModal = function () {
@@ -13,8 +14,10 @@
     $scope.CheckAdmin = function () {
         accountService.CheckAdminExistancy().success(function (response) {
             $scope.isAdminExists = response;
+            alert(response);
         })
             .error(function (response) {
+                alert(JSON.stringify(response));
             });
     }
 
@@ -32,32 +35,19 @@
     }
 
     $scope.login = function () {
-        accountService.loginUser($scope.LoginModal).success(function (response) {
-            alert(JSON.stringify(response));
-            window.location.href = "/Accounts";
-                //if (response.loginCount < 1)
-                //    window.location.href = "/account/profile";
-                //else {
-                //    if (response.PaidUser == "True") {
-                //        window.location.href = "/dashboard";
-                //    }
-                //    else {
-                //        window.location.href = "/landing";
-                //    }
-                //}
+        try {
+            $scope.progressbar.start();
+            accountService.loginUser($scope.LoginModal).success(function (response) {
+                $scope.progressbar.complete();
+                window.location.href = "/Accounts";
             })
                 .error(function (response) {
-                    alert(JSON.stringify( response));
-                    //toastr.error(response.error_description)
-                    ////console.log(response)
-                    //$scope.loginLoading = false;
-            });
+                    $scope.progressbar.complete();
+                    messageService.CheckAdminExistancy("Sorry !", response.error_description, 'warning');
+                });
 
-       
-        
-        //window.location.href = "/Accounts";
-
+        } catch (e) {
+            alert(e.message);
+        }
     }
-
-  
 }]);

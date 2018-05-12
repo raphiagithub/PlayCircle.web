@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security.DataProtection;
+using PlayCircle.web.Helpers;
 using PlayCircle.web.Models;
 using Portal.PlayCircle.App_Start;
 using Portal.PlayCircle.DataEntity.DBContext;
@@ -41,9 +43,30 @@ namespace PlayCircle.web.Api
         [HttpGet]
         public async Task<bool> CheckAdminExistancy()
         {
-            PlayCircleDBContext playcircledbcontext = new PlayCircleDBContext();
-            //playcircledbcontext.Users.Find()
-            return false;
+            try
+            {
+                var dbcontext = new PlayCircleDBContext();
+                var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(dbcontext));
+                if (roleManager.RoleExists(ConstantStrings.UserRoles.Admin.ToString()))
+                {
+                    var s = roleManager.FindByName("Admin");
+
+                    var adminroleid = await roleManager.FindByNameAsync(ConstantStrings.UserRoles.Admin.ToString());
+                    if (roleManager != null)
+                    {
+                        var user = dbcontext.Users.FirstOrDefault(e => e.Roles.Equals(adminroleid.Users));
+                        //roleManager.Create(new IdentityRole(ConstantStrings.UserRoles.Admin.ToString()));
+                    }
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("CheckAdminExistancy, error " + e.Message);
+                Console.WriteLine("CheckAdminExistancy, trace " + e.StackTrace);
+                return false;
+            }
+            return true;
         }
 
         [AllowAnonymous]

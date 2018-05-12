@@ -8,6 +8,8 @@
         addTag('link', { rel: 'stylesheet', href: '/Content/Styles/font-awesome.min.css', type: 'text/css' });
         addTag('link', { rel: 'stylesheet', href: '/Content/Styles/AdminLTE.min.css', type: 'text/css' });
         addTag('link', { rel: 'stylesheet', href: '/Content/Styles/_all-skins.min.css', type: 'text/css' });
+        addTag('link', { rel: 'stylesheet', href: '/Content/Styles/sweetalert.css', type: 'text/css' });
+        addTag('link', { rel: 'stylesheet', href: '/Content/Styles/ngProgress.css', type: 'text/css' });
         //-- Styles start --//
 
 
@@ -20,6 +22,9 @@
         addTag('script', { src: '/Scripts/jquery-ui.min.js' }, sync);
         addTag('script', { src: '/Scripts/adminlte.min.js' }, sync);
         addTag('script', { src: '/Scripts/bootstrap.min.js' }, sync);
+        addTag('script', { src: '/Scripts/sweetalert.min.js' }, sync);
+        addTag('script', { src: '/Scripts/ngprogress.min.js' }, sync);
+        addTag('script', { src: '/Scripts/playcircle/services/message.js' }, sync);
 
         addTag('script', { src: '/Scripts/PlayCircle/Services/AccountService.js' }, sync);
 
