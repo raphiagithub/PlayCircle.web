@@ -256,6 +256,7 @@
   <ItemGroup>
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Images\default-user.jpg" />
+    <Content Include="Content\Partials\Activity\Category.html" />
     <Content Include="Content\Partials\Authentication\Register.html" />
     <Content Include="Content\Partials\Theme\Footer.html" />
     <Content Include="Content\Partials\Theme\Header.html" />
@@ -292,7 +293,7 @@
     <Content Include="Scripts\PlayCircle.js" />
     <Content Include="Scripts\PlayCircle\angular.js" />
     <Content Include="Scripts\PlayCircle\Angular\angular-local-storage.min.js" />
-    <Content Include="Scripts\PlayCircle\App\AuthenticationController.js" />
+    <Content Include="Scripts\PlayCircle\Controllers\AuthenticationController.js" />
     <Content Include="Scripts\PlayCircle\App\MainApp.js" />
     <Content Include="Scripts\PlayCircle\Controllers\DashboardController.js" />
     <Content Include="Scripts\PlayCircle\Services\Message.js" />

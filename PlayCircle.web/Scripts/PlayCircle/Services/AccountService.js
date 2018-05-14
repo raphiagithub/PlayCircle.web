@@ -5,7 +5,7 @@ mainapp.factory('accountService', ['$http', 'localStorageService', function ($ht
     var urlBase = window.location.origin + "/";
     var loginUrl = urlBase + "token";
     var registerUrl = urlBase + "api/Accounts/RegisterUser";
-    var CheckAdminExistancy = urlBase + "api/Accounts/CheckAdminExistancy";
+    var checkAdminExistancy = urlBase + "api/Accounts/CheckAdminExistancy";
     var userInfoUrl = urlBase + "api/Accounts/GetuserInfo";
 
     var updateUserInfoUrl = urlBase + "api/Account/UpdateUserInfo";
@@ -14,8 +14,8 @@ mainapp.factory('accountService', ['$http', 'localStorageService', function ($ht
     var accountServiceFactory = {};
 
     //-- Check if admin user exist or not --//
-    accountServiceFactory.CheckAdminExistancy = function (model) {
-        return $http.get(registerUrl).success(function (response) {
+    accountServiceFactory.CheckAdminExistancy = function () {
+        return $http.get(checkAdminExistancy).success(function (response) {
             return response;
         })
             .error(function (response) {

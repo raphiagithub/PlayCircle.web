@@ -26,6 +26,10 @@
         addTag('script', { src: '/Scripts/ngprogress.min.js' }, sync);
         addTag('script', { src: '/Scripts/playcircle/services/message.js' }, sync);
 
+        //-- Applevel controllers --//
+        addTag('script', { src: '/Scripts/PlayCircle/Controllers/AuthenticationController.js' }, sync);
+
+
         addTag('script', { src: '/Scripts/PlayCircle/Services/AccountService.js' }, sync);
 
         //addTag('script', { src: 'angtest.js' }, sync);

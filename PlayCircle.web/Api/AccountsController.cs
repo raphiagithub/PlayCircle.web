@@ -42,7 +42,8 @@ namespace PlayCircle.web.Api
         [AllowAnonymous]
         [HttpGet]
         public async Task<bool> CheckAdminExistancy()
-        {
+       {
+            /*
             try
             {
                 var dbcontext = new PlayCircleDBContext();
@@ -65,7 +66,7 @@ namespace PlayCircle.web.Api
                 Console.WriteLine("CheckAdminExistancy, error " + e.Message);
                 Console.WriteLine("CheckAdminExistancy, trace " + e.StackTrace);
                 return false;
-            }
+            }*/
             return true;
         }
 
@@ -104,7 +105,7 @@ namespace PlayCircle.web.Api
                     await UserManager.SendEmailAsync(user.Id,
                         "Welcome to Talentspire - Confirm account", body);
                     Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id })); */
-                    return Ok();
+            return Ok();
                 }
                 else
                 {
