@@ -1,5 +1,5 @@
 ﻿
-var mainapp = angular.module('playcircleApp', ['LocalStorageModule', 'ui.router', 'oc.lazyLoad','ngProgress']);
+var mainapp = angular.module('playcircleApp', ['LocalStorageModule', 'ui.router', 'oc.lazyLoad', 'ngProgress']);
 
 
 mainapp.controller('placirclerController', ['$scope', 'accountService', function ($scope, accountService) {
@@ -16,30 +16,40 @@ mainapp.controller('placirclerController', ['$scope', 'accountService', function
 
 }]);
 
+
 mainapp.config(function ($stateProvider, $urlRouterProvider) {
     //$urlRouterProvider.otherwise("/home");
     $stateProvider
         .state('home', {
-            url: '/home',
-            //templateUrl: '/Contents/Partials/LoginPage.html',
+            url: '/ApplciationUsers',
             templateUrl: '/Content/Partials/Users/Users.html',
-            data: function () {
-                return { name: 'gabriel' }
-            },
-            resolve: {
-                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
-                    return $ocLazyLoad.load({
-                        //insertBefore: '#ng_load_plugins_before',
-                        files: ['/Content/Styles/dataTables.bootstrap.min.css',
-                            '/Content/Styles/select2.min.css',
-                            '/Scripts/jquery.dataTables.min.js',
-                            '/Scripts/dataTables.bootstrap.min.js',
-                            '/Scripts/select2.full.min.js',
-                            '/Scripts/JavaScript.js',
-                        ]
-                    });
-                }]
-            }
+            data: {},
+            //resolve: {
+            //    deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+            //        return $ocLazyLoad.load({
+            //            //insertBefore: '#ng_load_plugins_before',
+            //            files: ['/Content/Styles/dataTables.bootstrap.min.css',
+            //                '/Content/Styles/select2.min.css',
+            //                '/Scripts/jquery.dataTables.min.js',
+            //                '/Scripts/dataTables.bootstrap.min.js',
+            //                '/Scripts/select2.full.min.js',
+            //                '/Scripts/JavaScript.js',
+            //            ]
+            //        });
+            //    }]
+            //}
+        })
+        .state('category', {
+            url: '/VideoCategory',
+            controller:'videoController',
+            templateUrl: '/Content/Partials/Videos/Category.html',
+            data: {}
+        })
+        .state('viewtype', {
+            url: '/ViewType',
+            controller: 'videoController',
+            templateUrl: '/Content/Partials/Videos/ViewType.html',
+            data: {}
         })
 });
 

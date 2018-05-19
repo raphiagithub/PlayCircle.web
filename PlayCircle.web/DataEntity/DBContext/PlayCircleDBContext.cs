@@ -1,8 +1,8 @@
 namespace Portal.PlayCircle.DataEntity.DBContext
 {
     using global::PlayCircle.web.DataEntity.DBContext;
+    using global::PlayCircle.web.Models.VideoModels;
     using Microsoft.AspNet.Identity.EntityFramework;
-    using Microsoft.Owin.Logging;
     using Portal.PlayCircle.DataEntity.EntityModels;
     using System;
     using System.ComponentModel.DataAnnotations;
@@ -11,10 +11,7 @@ namespace Portal.PlayCircle.DataEntity.DBContext
     using System.Data.Entity;
     using System.Data.Entity.Core.Objects;
     using System.Data.Entity.Infrastructure;
-    using System.Data.Entity.ModelConfiguration.Conventions;
-    using System.Linq;
     using System.Threading.Tasks;
-    using System.Web.Configuration;
 
     public class PlayCircleDBContext : IdentityDbContext<USERINFO>, IDbContext
     {
@@ -30,7 +27,7 @@ namespace Portal.PlayCircle.DataEntity.DBContext
 
         public PlayCircleDBContext()
             : base("name=" + AppConnectionString)
-         {
+        {
             if (_databaseInitialized)
             {
                 return;
@@ -67,6 +64,7 @@ namespace Portal.PlayCircle.DataEntity.DBContext
         //-- Table Integrations start --//
 
         public virtual DbSet<APPLICATIONs> Application { get; set; }
+        public virtual DbSet<VIDEOCATEGORY> Category { get; set; }
 
         //-- Table Integrations end --//
 

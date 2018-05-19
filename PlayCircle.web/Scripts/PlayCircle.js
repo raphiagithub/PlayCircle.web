@@ -28,9 +28,11 @@
 
         //-- Applevel controllers --//
         addTag('script', { src: '/Scripts/PlayCircle/Controllers/AuthenticationController.js' }, sync);
+        addTag('script', { src: '/Scripts/PlayCircle/Controllers/VideoController.js' }, sync);
 
 
         addTag('script', { src: '/Scripts/PlayCircle/Services/AccountService.js' }, sync);
+        addTag('script', { src: '/Scripts/PlayCircle/Services/VideoService.js' }, sync);
 
         //addTag('script', { src: 'angtest.js' }, sync);
     } catch (e) {

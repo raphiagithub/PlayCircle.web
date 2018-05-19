@@ -1,0 +1,102 @@
+﻿  <!-- from here -->
+
+<div class="modal fade" id="modal-default">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Create Video Category</h4>
+            </div>
+            <div class="modal-body" ng-init="GetAllCategories()">
+                <form name="categoryForm" ng-init="ClearValues()" novalidate ng-submit="SaveCategory()">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="txtCategory">Video Category</label>
+                            <input type="text" class="form-control" id="txtCategory" ng-model="CategoryModel.category" placeholder="Enter Category">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtDescription">Description</label>
+                            <textarea class="form-control" id="txtDescription" rows="3" ng-model="CategoryModel.description" placeholder="Enter Description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtOrder">View Order</label>
+                            <input type="text" class="form-control" id="txtOrdeer" ng-model="CategoryModel.view_order" placeholder="Enter order">
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="button" class="btn btn-default pull-left" ng-click="ClearValues()" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success pull-right" data-dismiss="modal" ng-click="SaveCategory()">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+
+    <h1>
+        Videos
+        <small>Video Category</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Videos</a></li>
+        <li class="active">Video Category</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Video Category</h3>
+                </div>
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-default">
+                        Create category
+                    </button>
+                </div>
+                <div class="col-md-12">
+                    &nbsp;
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Category Order</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="singlecategory in Categories" id="{{}}" ng-dblclick="PerformCategoryAction(singlecategory.id)">
+                                <td>{{$index+1}}</td>
+                                <td>{{singlecategory.category}}</td>
+                                <td>{{singlecategory.description}}</td>
+                                <td>{{singlecategory.view_order}}</td>
+                            </tr>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+<script>
+    $('tstBtn').click(function () {
+        alert('button clicked');
+    });
+</script>
+

@@ -9,6 +9,11 @@ mainapp.factory('messageService', function ($http, localStorageService) {
         swal(Header, Message, 'warning');
     };
 
+    //-- Prompt success message --//
+    MessageServiceFactory.ShowSuccessMessage = function (Header, Message) {
+        swal(Header, Message, 'success');
+    };
+
 
     
     return MessageServiceFactory;

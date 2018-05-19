@@ -256,13 +256,14 @@
   <ItemGroup>
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Images\default-user.jpg" />
-    <Content Include="Content\Partials\Activity\Category.html" />
+    <Content Include="Content\Partials\Videos\Category.html" />
     <Content Include="Content\Partials\Authentication\Register.html" />
     <Content Include="Content\Partials\Theme\Footer.html" />
     <Content Include="Content\Partials\Theme\Header.html" />
     <Content Include="Content\Partials\Theme\Slideer.html" />
     <Content Include="Content\Partials\Theme\WrapperPage.html" />
     <Content Include="Content\Partials\Users\Users.html" />
+    <Content Include="Content\Partials\Videos\ViewType.html" />
     <Content Include="Content\Styles\AdminLTE.min.css" />
     <Content Include="Content\Styles\blue.css" />
     <Content Include="Content\Styles\bootstrap.min.css" />
@@ -296,7 +297,10 @@
     <Content Include="Scripts\PlayCircle\Controllers\AuthenticationController.js" />
     <Content Include="Scripts\PlayCircle\App\MainApp.js" />
     <Content Include="Scripts\PlayCircle\Controllers\DashboardController.js" />
+    <Content Include="Scripts\PlayCircle\Controllers\VideoController.js" />
+    <Content Include="Scripts\PlayCircle\Jquery\CategoryInitializer.js" />
     <Content Include="Scripts\PlayCircle\Services\Message.js" />
+    <Content Include="Scripts\PlayCircle\Services\VideoService.js" />
     <Content Include="Scripts\select2.full.min.js" />
     <Content Include="Scripts\PlayCircle\Services\AccountService.js" />
     <Content Include="Scripts\sweetalert.min.js" />
@@ -305,6 +309,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\AccountsController.cs" />
+    <Compile Include="Api\VideosController.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.oauth.cs" />
@@ -321,6 +326,7 @@
     <Compile Include="Helpers\EmailService.cs" />
     <Compile Include="Models\AccountsModels\Users.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\VideoModels\CategoryModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOauthProvider.cs" />
     <Compile Include="Startup.cs" />
