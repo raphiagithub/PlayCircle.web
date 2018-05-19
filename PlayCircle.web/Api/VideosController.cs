@@ -50,5 +50,45 @@ namespace PlayCircle.web.Api
         }
 
         #endregion
+
+        #region View category
+
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IHttpActionResult> SaveViewType(ViewTypes viewtypes)
+        {
+            try
+            {
+                if (viewtypes != null)
+                {
+                    using (PlayCircleDBContext context = new PlayCircleDBContext())
+                    {
+                        context.ViewType.Add(viewtypes);
+                        await context.SaveChangesAsync();
+                    }
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest("Please fill all values");
+                }
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.InnerException.ToString());
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public List<ViewTypes> GetAllViewTypes()
+        {
+            using (PlayCircleDBContext context = new PlayCircleDBContext())
+            {
+                return context.ViewType.OrderBy(e => e.view_order).ToList();
+            }
+        }
+
+        #endregion
     }
 }

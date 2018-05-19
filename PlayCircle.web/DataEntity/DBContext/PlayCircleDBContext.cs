@@ -65,6 +65,7 @@ namespace Portal.PlayCircle.DataEntity.DBContext
 
         public virtual DbSet<APPLICATIONs> Application { get; set; }
         public virtual DbSet<VIDEOCATEGORY> Category { get; set; }
+        public virtual DbSet<ViewTypes> ViewType { get; set; }
 
         //-- Table Integrations end --//
 

@@ -1,16 +1,9 @@
 ﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security.DataProtection;
-using PlayCircle.web.Helpers;
 using PlayCircle.web.Models;
 using Portal.PlayCircle.App_Start;
-using Portal.PlayCircle.DataEntity.DBContext;
 using Portal.PlayCircle.DataEntity.EntityModels;
-using Portal.PlayCircle.Helpers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,7 +35,7 @@ namespace PlayCircle.web.Api
         [AllowAnonymous]
         [HttpGet]
         public async Task<bool> CheckAdminExistancy()
-       {
+        {
             /*
             try
             {
@@ -67,6 +60,7 @@ namespace PlayCircle.web.Api
                 Console.WriteLine("CheckAdminExistancy, trace " + e.StackTrace);
                 return false;
             }*/
+            await Task.Delay(0);
             return true;
         }
 
@@ -105,7 +99,7 @@ namespace PlayCircle.web.Api
                     await UserManager.SendEmailAsync(user.Id,
                         "Welcome to Talentspire - Confirm account", body);
                     Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id })); */
-            return Ok();
+                    return Ok();
                 }
                 else
                 {

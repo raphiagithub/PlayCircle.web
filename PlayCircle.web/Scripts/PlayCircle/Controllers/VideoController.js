@@ -45,5 +45,45 @@
         $scope.PerformCategoryAction = function (id) {
             alert(id);
         }
+
+        $scope.ClearViewTypeValues = function () {
+            $scope.ViewTypeModel = {};
+        }
+
+        $scope.SaveViewTypes = function () {
+            try {
+                $scope.progressbar.start();
+                videoService.SaveViewType($scope.ViewTypeModel).success(function (response) {
+                    $scope.progressbar.complete();
+                    $scope.ViewTypeModel = {};
+                    messageService.ShowSuccessMessage("Succcess !", "ViewType saved successfully...!");
+                    $scope.GetAllViewtypes();
+                })
+                    .error(function (response) {
+                        messageService.ShowFailedMessage(response.Message, JSON.stringify(response.ModelState));
+                    });
+            } catch (e) {
+                Console.log('SaveCategory ' + e.message);
+            }
+        }
+
+        $scope.GetAllViewtypes = function () {
+            try {
+                $scope.progressbar.start();
+                videoService.GetAllViewTypes().success(function (response) {
+                    $scope.progressbar.complete();
+                    $scope.ViewTypes = response;
+                })
+                    .error(function (response) {
+                        messageService.ShowFailedMessage(response.Message, JSON.stringify(response.ModelState));
+                    });
+            } catch (e) {
+                Console.log('GetAllVideoTypes ' + e.message);
+            }
+        }
+
+        $scope.PerformTypeAction = function (id) {
+            alert(id);
+        }
     }]);
 })();
