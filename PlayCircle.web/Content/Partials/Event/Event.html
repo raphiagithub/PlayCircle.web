@@ -1,0 +1,246 @@
+﻿  <!-- from here -->
+
+
+<div class="modal fade" id="modal-default" ng-init="InitiatePage()">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Create Event</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="txtEvent">Event Name</label>
+                            <input type="text" class="form-control" id="txtEvent" ng-model="EventModel.event_name" placeholder="Enter Category">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEventDescription">Description</label>
+                            <textarea class="form-control" id="txtEventDescription" rows="3" ng-model="EventModel.event_description" placeholder="Enter Description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Event Banner</label>
+                            <input type="file" class="form-control" ng-model="EventModel.banner" />
+                        </div>
+                        <div class="form-group">
+                            <label>Event Start Date</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right" id="eventstartdate" ng-model="EventModel.date_from">
+                                <!--<input type="text" class="form-control pull-right" ng-text-change="test()" id="reservationtime" ng-model="EventModel.date_from">-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Event End Date</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right" id="eventenddate" ng-model="EventModel.date_to">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Files Count</label>
+                            <input type="text" class="form-control" ng-model="EventModel.file_count" placeholder="Enter file count " />
+                        </div>
+                        <div class="form-group">
+                            <label>Max file size ( in MB)</label>
+                            <input type="text" class="form-control" ng-model="EventModel.max_filesize" placeholder="Enter max file size " />
+                        </div>
+                        <div class="form-group">
+                            <label>Categories</label>
+                            <select class="form-control select2" multiple="multiple" id="category" data-placeholder="Select Category" ng-model="EventModel.categories"
+                                    style="width: 100%;" ng-options="item.id as item.category for item in EventCategories"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Winners count</label>
+                            <select class="form-control select2" id="winnerscount" style="width: 100%;" ng-model="EventModel.winners_count">
+                                <option value="1" selected="selected">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Result Date</label>
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right" id="resultdate" ng-model="EventModel.winner_announcement_date">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Price amount</label>
+                            <input type="text" class="form-control" ng-model="EventModel.price_amount" placeholder="Enter price amount " />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Participants count</label>
+                            <input type="text" class="form-control" ng-model="EventModel.participants_count" placeholder="Enter participants count " />
+                        </div>
+                        <!--<div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Check me out
+                            </label>
+                        </div>-->
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="SaveEvent()">Create Evnet</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-event" >
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Event Details</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    {{eventdetails.id}}
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" >I Know</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Events
+        <small>Event Createion</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Event</a></li>
+        <li class="active">Event Creation</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Events</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="col-sm-12  col-md-12  " ng-init="GetAllEvents()">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-default pull-right" ng-click="InitiateStyles()" data-toggle="modal" data-target="#modal-default">
+                            Create Event
+                        </button>
+                    </div>
+                    <div class="main-grids">
+                        <div class="top-grids">
+                            <div class="recommended-info">
+                                <h3>Upcomming Events</h3>
+                            </div>
+                            <div ng-show="UpCommingEvents.length==null" class="text-center title title-info">Nothing found at the moment..!</div>
+                            <div ng-repeat="ev in UpCommingEvents" class="col-md-4 resent-grid recommended-grid slider-top-grids">
+                                <div class="resent-grid-img recommended-grid-img">
+                                    <div><h4 class="title title-info">{{$index+1}}.{{ev.event_name}}</h4></div>
+                                    <a href="single.html"><img src="/Content/Images/t1.jpg" alt="" /></a>
+                                    <div class="time">
+                                        <p>{{ev.date_from}}&nbsp;to&nbsp;{{ev.date_to}}</p>
+                                    </div>
+                                    <div class="clck">
+                                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                                    </div>
+                                </div>
+                                <div class="resent-grid-info recommended-grid-info">
+                                    <h3><a href="single.html" class="title title-info">{{ev.event_description}}</a></h3>
+                                    <ul>
+                                        <li><p class="author author-info"><a href="#" class="author">By Admin</a></p></li>
+                                        <li class="right-list"><p class="views views-info">2,114,200 views</p></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="recommended">
+                            <div class="recommended-grids">
+                                <div class="recommended-info">
+                                    <h3>Completed Events</h3>
+                                </div>
+                                <script src="js/responsiveslides.min.js"></script>
+                                <script>
+                                    // You can also use "$(window).load(function() {"
+                                    $(function () {
+                                        // Slideshow 4
+                                        $("#slider3").responsiveSlides({
+                                            auto: true,
+                                            pager: false,
+                                            nav: true,
+                                            speed: 500,
+                                            namespace: "callbacks",
+                                            before: function () {
+                                                $('.events').append("<li>before event fired.</li>");
+                                            },
+                                            after: function () {
+                                                $('.events').append("<li>after event fired.</li>");
+                                            }
+                                        });
+
+                                    });
+                                </script>
+                                <div id="top" class="callbacks_container">
+                                    <ul class="rslides" id="slider3">
+                                        <li>
+                                            <div class="animated-grids">
+                                                <div ng-repeat="ev in CompletedEvents" class="col-md-3 resent-grid recommended-grid slider-first">
+                                                    <div class="resent-grid-img recommended-grid-img">
+                                                        <a ng-dblclick="imgClicked(ev)"><img src="/Content/Images/t1.jpg" alt="" /></a>
+                                                        <div class="time small-time slider-time">
+                                                            <p>{{ev.date_from}}&nbsp;to&nbsp;{{ev.date_to}}</p>
+                                                        </div>
+                                                        <div class="clck small-clck">
+                                                            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="resent-grid-info recommended-grid-info">
+                                                        <h5><a href="single.html" class="title">{{ev.event_description}}</a></h5>
+                                                        <div class="slid-bottom-grids">
+                                                            <div class="slid-bottom-grid">
+                                                                <p class="author author-info"><a href="#" class="author">John Maniya</a></p>
+                                                            </div>
+                                                            <div class="slid-bottom-grid slid-bottom-right">
+                                                                <p class="views views-info">14,200 views</p>
+                                                            </div>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"> </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+</section>
+

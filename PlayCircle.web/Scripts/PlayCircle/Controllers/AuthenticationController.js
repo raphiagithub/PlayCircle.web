@@ -24,10 +24,10 @@
     $scope.SignUp = function () {
         try {
             accountService.registerUser($scope.RegistrationModel, $scope.RegistrationModel).success(function (response) {
-                alert(response);
+                messageService.ShowSuccessMessage("Success !", "User Account created successfully");
             })
                 .error(function (response) {
-                    messageService.ShowFailedMessage(response.Message, JSON.stringify(response.ModelState));
+                    messageService.ShowFailedMessage(response.Message, JSON.stringify(response.Errors[0]));
                 });
         } catch (e) {
             alert(e.message);

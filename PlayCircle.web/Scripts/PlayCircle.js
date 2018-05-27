@@ -10,6 +10,16 @@
         addTag('link', { rel: 'stylesheet', href: '/Content/Styles/_all-skins.min.css', type: 'text/css' });
         addTag('link', { rel: 'stylesheet', href: '/Content/Styles/sweetalert.css', type: 'text/css' });
         addTag('link', { rel: 'stylesheet', href: '/Content/Styles/ngProgress.css', type: 'text/css' });
+        addTag('link', { rel: 'stylesheet', href: '/Content/Styles/style.css', type: 'text/css' });
+
+
+        addTag('link', { rel: 'stylesheet', href: '/Content/Styles/select2.min.css', type: 'text/css' });
+        addTag('link', { rel: 'stylesheet', href: '/Content/Styles/dataTables.bootstrap.min.css', type: 'text/css' });
+        addTag('link', { rel: 'stylesheet', href: '/Content/Styles/bootstrap-datepicker.min.css', type: 'text/css' });
+        addTag('link', { rel: 'stylesheet', href: '/Content/Styles/daterangepicker.css', type: 'text/css' });
+        addTag('link', { rel: 'stylesheet', href: '/Content/Styles/bootstrap-datepicker.min.css', type: 'text/css' });
+        addTag('link', { rel: 'stylesheet', href: '/Content/Styles/bootstrap-timepicker.min.css', type: 'text/css' });
+
         //-- Styles start --//
 
 
@@ -29,10 +39,27 @@
         //-- Applevel controllers --//
         addTag('script', { src: '/Scripts/PlayCircle/Controllers/AuthenticationController.js' }, sync);
         addTag('script', { src: '/Scripts/PlayCircle/Controllers/VideoController.js' }, sync);
+        addTag('script', { src: '/Scripts/PlayCircle/Controllers/EventController.js' }, sync);
 
 
         addTag('script', { src: '/Scripts/PlayCircle/Services/AccountService.js' }, sync);
         addTag('script', { src: '/Scripts/PlayCircle/Services/VideoService.js' }, sync);
+        addTag('script', { src: '/Scripts/PlayCircle/Services/EventService.js' }, sync);
+
+
+
+        addTag('script', { src: '/Scripts/jquery.dataTables.min.js' }, sync); 
+        addTag('script', { src: '/Scripts/dataTables.bootstrap.min.js' }, sync);
+        addTag('script', { src: '/Scripts/select2.full.min.js' }, sync);
+        addTag('script', { src: '/Scripts/bootstrap-datepicker.min.js' }, sync);
+        addTag('script', { src: '/Scripts/select2.full.min.js' }, sync);
+        addTag('script', { src: '/Scripts/jquery.inputmask.js' }, sync);
+        addTag('script', { src: '/Scripts/jquery.inputmask.date.extensions.js' }, sync);
+        addTag('script', { src: '/Scripts/moment.min.js' }, sync); 
+        addTag('script', { src: '/Scripts/daterangepicker.js' }, sync); 
+        addTag('script', { src: '/Scripts/bootstrap-datepicker.min.js' }, sync); 
+        addTag('script', { src: '/Scripts/adminlte.min.js' }, sync); 
+
 
         //addTag('script', { src: 'angtest.js' }, sync);
     } catch (e) {

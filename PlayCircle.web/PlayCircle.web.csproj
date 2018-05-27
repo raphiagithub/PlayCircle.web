@@ -256,6 +256,8 @@
   <ItemGroup>
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Images\default-user.jpg" />
+    <Content Include="Content\Images\t1.jpg" />
+    <Content Include="Content\Partials\Event\Event.html" />
     <Content Include="Content\Partials\Videos\Category.html" />
     <Content Include="Content\Partials\Authentication\Register.html" />
     <Content Include="Content\Partials\Theme\Footer.html" />
@@ -266,8 +268,11 @@
     <Content Include="Content\Partials\Videos\ViewType.html" />
     <Content Include="Content\Styles\AdminLTE.min.css" />
     <Content Include="Content\Styles\blue.css" />
+    <Content Include="Content\Styles\bootstrap-datepicker.min.css" />
+    <Content Include="Content\Styles\bootstrap-timepicker.min.css" />
     <Content Include="Content\Styles\bootstrap.min.css" />
     <Content Include="Content\Styles\dataTables.bootstrap.min.css" />
+    <Content Include="Content\Styles\daterangepicker.css" />
     <Content Include="Content\Styles\font-awesome.min.css" />
     <Content Include="Content\Styles\ngProgress.css" />
     <Content Include="Content\Styles\select2.min.css" />
@@ -282,13 +287,18 @@
     <Content Include="Content\fonts\FontAwesome.otf" />
     <Content Include="Scripts\adminlte.min.js" />
     <Content Include="Scripts\angular-ui-router.js" />
+    <Content Include="Scripts\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\daterangepicker.js" />
     <Content Include="Scripts\icheck.min.js" />
     <Content Include="Scripts\JavaScript.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.inputmask.date.extensions.js" />
+    <Content Include="Scripts\jquery.inputmask.js" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\ngprogress.min.js" />
     <Content Include="Scripts\ocLazyLoad.min.js" />
     <Content Include="Scripts\PlayCircle.js" />
@@ -297,18 +307,22 @@
     <Content Include="Scripts\PlayCircle\Controllers\AuthenticationController.js" />
     <Content Include="Scripts\PlayCircle\App\MainApp.js" />
     <Content Include="Scripts\PlayCircle\Controllers\DashboardController.js" />
+    <Content Include="Scripts\PlayCircle\Controllers\EventController.js" />
     <Content Include="Scripts\PlayCircle\Controllers\VideoController.js" />
-    <Content Include="Scripts\PlayCircle\Jquery\CategoryInitializer.js" />
+    <Content Include="Scripts\PlayCircle\Jquery\EventInitializer.js" />
+    <Content Include="Scripts\PlayCircle\Services\EventService.js" />
     <Content Include="Scripts\PlayCircle\Services\Message.js" />
     <Content Include="Scripts\PlayCircle\Services\VideoService.js" />
     <Content Include="Scripts\select2.full.min.js" />
     <Content Include="Scripts\PlayCircle\Services\AccountService.js" />
+    <Content Include="Content\Styles\style.css" />
     <Content Include="Scripts\sweetalert.min.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Accounts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\AccountsController.cs" />
+    <Compile Include="Api\EventController.cs" />
     <Compile Include="Api\VideosController.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -325,6 +339,8 @@
     <Compile Include="Helpers\ConstantString.cs" />
     <Compile Include="Helpers\EmailService.cs" />
     <Compile Include="Models\AccountsModels\Users.cs" />
+    <Compile Include="Models\EventModels\EventsAndCategory.cs" />
+    <Compile Include="DataEntity\EntityModels\EvnetModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\VideoModels\CategoryModel.cs" />
     <Compile Include="Models\VideoModels\ViewTypeModel.cs" />

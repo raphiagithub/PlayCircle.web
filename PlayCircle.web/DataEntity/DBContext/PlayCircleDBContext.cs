@@ -1,6 +1,7 @@
 namespace Portal.PlayCircle.DataEntity.DBContext
 {
     using global::PlayCircle.web.DataEntity.DBContext;
+    using global::PlayCircle.web.Models.EventModels;
     using global::PlayCircle.web.Models.VideoModels;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Portal.PlayCircle.DataEntity.EntityModels;
@@ -66,6 +67,7 @@ namespace Portal.PlayCircle.DataEntity.DBContext
         public virtual DbSet<APPLICATIONs> Application { get; set; }
         public virtual DbSet<VIDEOCATEGORY> Category { get; set; }
         public virtual DbSet<ViewTypes> ViewType { get; set; }
+        public virtual DbSet<Event> Event { get; set; }
 
         //-- Table Integrations end --//
 

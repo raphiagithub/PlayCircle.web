@@ -79,7 +79,7 @@ namespace PlayCircle.web.Api
                     full_name = registermodel.FullName,
                     UserName = registermodel.UserName,
                     Email = registermodel.Email,
-                    EmailConfirmed = false,
+                    EmailConfirmed = true,
                     PhoneNumber = registermodel.MobileNo,
                 };
                 IdentityResult result = await UserManager.CreateAsync(user, registermodel.Password);

@@ -51,6 +51,20 @@ mainapp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: '/Content/Partials/Videos/ViewType.html',
             data: {}
         })
+        .state('event', {
+            url: '/Events',
+            controller: 'eventController',
+            templateUrl: '/Content/Partials/Event/Event.html',
+            data: {},
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        //insertBefore: '#ng_load_plugins_before',
+                        files: ['/Scripts/PlayCircle/Jquery/EventInitializer.js']
+                    });
+                }]
+            }
+        })
 });
 
 mainapp.directive('contentPage', function () {
