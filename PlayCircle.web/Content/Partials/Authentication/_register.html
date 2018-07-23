@@ -1,0 +1,41 @@
+﻿
+<form ng-init="clearmodel()" method="post" style="padding: 20px;     padding-bottom: 0px;">
+    <div class="form-group has-feedback">
+        <input type="text" class="form-control" ng-model="RegistrationModel.FullName" name="txtFullName" placeholder="Full name">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+    </div>
+    <div class="form-group has-feedback">
+        <input type="text" class="form-control" ng-pattern="emailFormat" ng-model-options="{updateOn: 'change', allowInvalid : true}" ng-pattern-err-type="emailPattern"
+               ng-model="RegistrationModel.Email" placeholder="Email">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+    </div>
+    <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="Mobile No" ng-model="RegistrationModel.MobileNo">
+        <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+    </div>
+    <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="User Name" ng-model="RegistrationModel.UserName">
+        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+    </div>
+    <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="Password" ng-model="RegistrationModel.Password">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+    </div>
+    <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="Retype password" ng-model="RegistrationModel.RePassword">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+    </div>
+    <!--<div class="form-group has-feedback">
+        <input type="file" class="form-control" placeholder="Retype password">
+    </div>-->
+    <div class="row" style="padding:0px 18px">
+        <button type="submit" ng-click="SignUp()" class="btn btn-primary btn-block btn-flat">Sign Up</button>
+        <button type="button" ng-click="clearmodel()" class="btn btn-danger btn-block btn-flat">Clear</button>
+    </div>
+</form>
+<div class="text-center" style="padding:10px 20px;">
+    <p>- X X X -</p>
+</div>
+<div style="padding:0px 20px; text-align: center; padding-bottom: 0px;">
+    <a ng-click="SetPage('login')" style="cursor:pointer;" class="text-center">Back to login</a>
+</div>

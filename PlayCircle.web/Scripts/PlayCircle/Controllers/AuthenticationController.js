@@ -1,8 +1,6 @@
 ﻿mainapp.controller('authenticationController', ['$scope', 'accountService', 'ngProgressFactory', 'messageService', function ($scope, accountService, ngProgressFactory, messageService) {
 
-    $scope.PageTitle = "Registration";
-    $scope.emailFormat = /^[a-zA-Z0-9._]+[@]+[a-zA-Z0-9]+[.]+[a-zA-Z]{2,6}/;
-    $scope.emailPattern = "wrong email";
+  
     $scope.progressbar = ngProgressFactory.createInstance();
 
 

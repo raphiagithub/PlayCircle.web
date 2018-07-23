@@ -1,0 +1,1 @@
+﻿var authenticationapp = angular.module('authapp', ['LocalStorageModule', 'ngProgress']);

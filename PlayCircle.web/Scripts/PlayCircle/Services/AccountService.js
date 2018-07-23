@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-mainapp.factory('accountService', ['$http', 'localStorageService', function ($http, localStorageService) {
+authenticationapp.factory('accountService', ['$http', 'localStorageService', function ($http, localStorageService) {
 
     var urlBase = window.location.origin + "/";
     var loginUrl = urlBase + "token";

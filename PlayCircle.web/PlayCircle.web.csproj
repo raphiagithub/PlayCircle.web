@@ -255,7 +255,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Images\default-user.jpg" />
+    <Content Include="Content\Partials\Authentication\_forgotpassword.html" />
+    <Content Include="Content\Partials\Authentication\_login.html" />
+    <Content Include="Content\Partials\Authentication\_register.html" />
     <Content Include="Content\Partials\Videos\Category.html" />
     <Content Include="Content\Partials\Authentication\Register.html" />
     <Content Include="Content\Partials\Theme\Footer.html" />
@@ -266,10 +270,12 @@
     <Content Include="Content\Partials\Videos\ViewType.html" />
     <Content Include="Content\Styles\AdminLTE.min.css" />
     <Content Include="Content\Styles\blue.css" />
+    <Content Include="Content\Styles\blue.png" />
     <Content Include="Content\Styles\bootstrap.min.css" />
     <Content Include="Content\Styles\dataTables.bootstrap.min.css" />
     <Content Include="Content\Styles\font-awesome.min.css" />
     <Content Include="Content\Styles\ngProgress.css" />
+    <Content Include="Content\Styles\playcircle.css" />
     <Content Include="Content\Styles\select2.min.css" />
     <Content Include="Content\Styles\sweetalert.css" />
     <Content Include="Content\Styles\_all-skins.min.css" />
@@ -280,6 +286,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Index.html" />
     <Content Include="Scripts\adminlte.min.js" />
     <Content Include="Scripts\angular-ui-router.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -294,10 +301,12 @@
     <Content Include="Scripts\PlayCircle.js" />
     <Content Include="Scripts\PlayCircle\angular.js" />
     <Content Include="Scripts\PlayCircle\Angular\angular-local-storage.min.js" />
+    <Content Include="Scripts\PlayCircle\App\_authapp.js" />
     <Content Include="Scripts\PlayCircle\Controllers\AuthenticationController.js" />
     <Content Include="Scripts\PlayCircle\App\MainApp.js" />
     <Content Include="Scripts\PlayCircle\Controllers\DashboardController.js" />
     <Content Include="Scripts\PlayCircle\Controllers\VideoController.js" />
+    <Content Include="Scripts\PlayCircle\Controllers\_authController.js" />
     <Content Include="Scripts\PlayCircle\Jquery\CategoryInitializer.js" />
     <Content Include="Scripts\PlayCircle\Services\Message.js" />
     <Content Include="Scripts\PlayCircle\Services\VideoService.js" />
@@ -338,6 +347,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
