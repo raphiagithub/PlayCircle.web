@@ -1,5 +1,4 @@
 ﻿'use strict';
-
 authenticationapp.factory('accountService', ['$http', 'localStorageService', function ($http, localStorageService) {
 
     var urlBase = window.location.origin + "/";

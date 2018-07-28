@@ -109,7 +109,7 @@
                 $scope.progressbar.start();
                 accountService.loginUser($scope.LoginModal).success(function (response) {
                     $scope.progressbar.complete();
-                    window.location.href = "/Accounts";
+                    window.location.href = "/Index.html";
                 })
                     .error(function (response) {
                         $scope.progressbar.complete();
