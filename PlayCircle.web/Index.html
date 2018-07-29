@@ -1,17 +1,21 @@
 ﻿<!DOCTYPE html>
-<html ng-app="_mainApp" ng-controller="_mainCtrl" ng-init="GetLogedInUserInfo()">
+<html data-ng-app="_mainApp">
+<!--  ng-controller="_mainCtrl" ng-init="GetLogedInUserInfo()"-->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ProjectName | Dashboard</title>
+    <title>XXX</title>
+    <!--<title data-ng-bind="'School Management Software :: ' + $state.current.data.pageTitle"></title>-->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link href="Content/Styles/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/Styles/font-awesome.min.css" rel="stylesheet" />
     <link href="Content/Styles/styles.css" rel="stylesheet" />
     <link href="Content/Styles/_all-skins.min.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-blue sidebar-mini"> 
+<body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
         <header class="main-header">
             <a href="index2.html" class="logo">
@@ -158,7 +162,7 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-circle-o"></i> View All</a></li>
+                            <li><a ui-sref="usersview"><i class="fa fa-circle-o"></i>View All</a></li>
                             <li><a href="#"><i class="fa fa-circle-o"></i> Manage</a></li>
                         </ul>
                     </li>
@@ -171,13 +175,9 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Category</a></li>
-                            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> View Type</a></li>
+                            <li><a ui-sref="catagory"><i class="fa fa-circle-o"></i>Category</a></li>
+                            <li><a ui-sref="viewtype"><i class="fa fa-circle-o"></i> View Type</a></li>
                             <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> All Events</a></li>
-                          
-                            <li><a ui-sref="hello"><i class="fa fa-circle-o"></i>User List</a></li>
-                            <li><a ui-sref="hello1"><i class="fa fa-circle-o"></i>User List1</a></li>
-                           
                         </ul>
                     </li>
                     <li>
@@ -216,7 +216,7 @@
             </section>
             <section class="content">
                 <div ui-view></div>
-              
+
 
             </section>
         </div>
@@ -239,6 +239,6 @@
     <script src="Scripts/jquery.min.js"></script>
     <script src="Scripts/jquery-ui.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
-    <script src="Scripts/adminlte.min.js"></script> 
+    <script src="Scripts/adminlte.min.js"></script>
 </body>
 </html>

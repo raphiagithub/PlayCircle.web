@@ -71,7 +71,7 @@
     $scope.SignUp = function () {
         try {
             $scope.progressbar.start();
-            if ($scope.RegistrationModel.Password == $scope.RegistrationModel.RePassword) {
+            if ($scope.RegistrationModel.Password === $scope.RegistrationModel.RePassword) {
                 if ($scope.RegistrationModel.FullName != '' &&
                     $scope.RegistrationModel.Email &&
                     $scope.RegistrationModel.MobileNo &&
@@ -104,7 +104,7 @@
 
 
     $scope.login = function (e) {
-        if ($scope.LoginModal.UserName != undefined && $scope.LoginModal.Password != undefined) {
+        if ($scope.LoginModal.UserName !== undefined && $scope.LoginModal.Password !== undefined) {
             try {
                 $scope.progressbar.start();
                 accountService.loginUser($scope.LoginModal).success(function (response) {

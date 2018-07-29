@@ -1,9 +1,13 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using PlayCircle.web.Models;
+using PlayCircle.web.Models.AccountsModels;
 using Portal.PlayCircle.App_Start;
+using Portal.PlayCircle.DataEntity.DBContext;
 using Portal.PlayCircle.DataEntity.EntityModels;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -174,6 +178,15 @@ namespace PlayCircle.web.Api
                 return Ok(userdetails);
             }
             return null;
+        }
+
+        [HttpGet]
+        public async Task<string> GetAllUsers()
+        {
+            using (PlayCircleDBContext context = new PlayCircleDBContext())
+            {
+                return Newtonsoft.Json.JsonConvert.SerializeObject(context.Users.ToList());
+            }
         }
     }
 

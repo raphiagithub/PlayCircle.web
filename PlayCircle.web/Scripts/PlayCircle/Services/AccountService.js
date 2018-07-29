@@ -6,6 +6,7 @@ authenticationapp.factory('accountService', ['$http', 'localStorageService', fun
     var registerUrl = urlBase + "api/Accounts/RegisterUser";
     var checkAdminExistancy = urlBase + "api/Accounts/CheckAdminExistancy";
     var userInfoUrl = urlBase + "api/Accounts/GetuserInfo";
+    var userListUrl = urlBase + "api/Accounts/GetAllUsers";
 
     var updateUserInfoUrl = urlBase + "api/Account/UpdateUserInfo";
     var forgotPasswordUrl = urlBase + "api/Account/ForgotPassword";
@@ -53,6 +54,16 @@ authenticationapp.factory('accountService', ['$http', 'localStorageService', fun
     accountServiceFactory.GetuserInfo = function () {
         return $http.get(userInfoUrl).success(function (response) {
                 return response;
+        })
+            .error(function (response) {
+                return response;
+            });
+    };
+
+    //-- Get all users -- //
+    accountServiceFactory.GetAllUsers = function () {
+        return $http.get(userListUrl).success(function (response) {
+            return response;
         })
             .error(function (response) {
                 return response;

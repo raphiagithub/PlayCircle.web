@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 (function () {
-    mainapp.controller('videoController', ['$scope', 'videoService', 'ngProgressFactory', 'messageService', function ($scope, videoService, ngProgressFactory, messageService) {
+    angular.module('_mainApp').controller('videoController', ['$scope', 'videoService', 'ngProgressFactory', function ($scope, videoService, ngProgressFactory) {
 
         $scope.progressbar = ngProgressFactory.createInstance();
 
@@ -16,11 +16,11 @@
                 videoService.SaveCategory($scope.CategoryModel).success(function (response) {
                     $scope.progressbar.complete();
                     $scope.CategoryModel = {};
-                    messageService.ShowSuccessMessage("Succcess !", "Category saved successfully...!");
+                    //messageService.ShowSuccessMessage("Succcess !", "Category saved successfully...!");
                     $scope.GetAllCategories();
                 })
                     .error(function (response) {
-                        messageService.ShowFailedMessage(response.Message, JSON.stringify(response.ModelState));
+                        //messageService.ShowFailedMessage(response.Message, JSON.stringify(response.ModelState));
                     });
             } catch (e) {
                 Console.log('SaveCategory ' + e.message);
@@ -35,7 +35,7 @@
                     $scope.Categories = response;
                 })
                     .error(function (response) {
-                        messageService.ShowFailedMessage(response.Message, JSON.stringify(response.ModelState));
+                        //messageService.ShowFailedMessage(response.Message, JSON.stringify(response.ModelState));
                     });
             } catch (e) {
                 Console.log('GetAllCategories ' + e.message);
@@ -56,11 +56,11 @@
                 videoService.SaveViewType($scope.ViewTypeModel).success(function (response) {
                     $scope.progressbar.complete();
                     $scope.ViewTypeModel = {};
-                    messageService.ShowSuccessMessage("Succcess !", "ViewType saved successfully...!");
+                    //messageService.ShowSuccessMessage("Succcess !", "ViewType saved successfully...!");
                     $scope.GetAllViewtypes();
                 })
                     .error(function (response) {
-                        messageService.ShowFailedMessage(response.Message, JSON.stringify(response.ModelState));
+                        //messageService.ShowFailedMessage(response.Message, JSON.stringify(response.ModelState));
                     });
             } catch (e) {
                 Console.log('SaveCategory ' + e.message);
@@ -75,7 +75,7 @@
                     $scope.ViewTypes = response;
                 })
                     .error(function (response) {
-                        messageService.ShowFailedMessage(response.Message, JSON.stringify(response.ModelState));
+                        //messageService.ShowFailedMessage(response.Message, JSON.stringify(response.ModelState));
                     });
             } catch (e) {
                 Console.log('GetAllVideoTypes ' + e.message);
